@@ -1,4 +1,4 @@
-import "./index.css"
+//import "./index.css"
 import { RouterProvider } from "react-router-dom"
 import router from "./router"
 
