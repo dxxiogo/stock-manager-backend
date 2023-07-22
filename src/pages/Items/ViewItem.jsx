@@ -1,9 +1,17 @@
+import { useContext } from "react"
+import { ItemsContext } from "../../contexts/ItemsContext"
+import { useParams } from "react-router-dom";
+
 export default function ViewItem () {
+    const {items} = useContext(ItemsContext);
+    const itemId = useParams();
+    const {name, description, price, amount, category } = items.find(({id}) => id === +itemId );
+
     return (
         <div>
             <div>
                 <span>
-                    7 Wonrdes
+                    {name}
                 </span>
                 <span>
                     <button>Atualizar</button>
@@ -11,7 +19,7 @@ export default function ViewItem () {
                 </span>
             </div>
             <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati facere dolor pariatur tempora, voluptate, architecto delectus itaque quia exercitationem minima est reprehenderit modi, rem velit sit veritatis alias at debitis.</p>
+                <p>{description}</p>
             </div>
         </div>
     )
