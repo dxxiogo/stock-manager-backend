@@ -6,6 +6,7 @@ import Items from "./pages/Items/Items";
 import AddNewItem from "./pages/Items/AddNewItem";
 import UpdateItem from "./pages/Items/UpdateItem";
 import ViewItem from "./pages/Items/ViewItem";
+import itemLoader from "./loaders/items";
 
 const router = createBrowserRouter([
     {
@@ -17,25 +18,26 @@ const router = createBrowserRouter([
                 element: <Dashboard/>
             },
             {
-                path: '/StockItems',
+                path: 'StockItems',
                 element: <StockItemsLayout/>,
                 children: [
                     {
-                        path: "Items",
-                        element: <Items/>
-                    },
-                    {
-                        path: "update/:itemId",
-                        element: <UpdateItem/>
-                    },
-                    {
-                        path: "view/:id",
+                        path: "view/:itemId",
                         element: <ViewItem/>
                     },
                     {
                         path: "addNewItem",
                         element: <AddNewItem/>
-                    }      
+                    },      
+                    {
+                        path: "Items",
+                        element: <Items/>,
+                    },
+                    {
+                        path: "update/:itemId",
+                        element: <UpdateItem/>,
+                        loader: itemLoader
+                    }
                 ]
             }
         ]

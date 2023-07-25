@@ -1,9 +1,9 @@
 export function TableHead ({children}) {
     return (
-        <header>
-            <ul>
+        <thead>
+            <tr>
                {children}
-            </ul>
-        </header>
+            </tr>
+        </thead>
     )
 }

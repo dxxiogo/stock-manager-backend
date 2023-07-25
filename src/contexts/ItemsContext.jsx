@@ -14,5 +14,17 @@ export function ItemsProvider ({children}) {
         setItems(state => state.filter(item => item.id != id))
     }
 
-    return <ItemsContext.Provider value={{items, addItem, removeItem}}>{children}</ItemsContext.Provider>
+    function updateItem(value) {
+        setItems(state => {
+          return state.map(item => {
+            if (item.id === value.id) {
+              return { ...item, ...value };
+            } else {
+              return item;
+            }
+          });
+        });
+      }
+
+    return <ItemsContext.Provider value={{items, addItem, removeItem, updateItem}}>{children}</ItemsContext.Provider>
 }

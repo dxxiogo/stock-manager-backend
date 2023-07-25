@@ -14,8 +14,8 @@ export default function ItemRow ({id, name, amount, category, price, description
             <td>{price}</td>
             <td>{description}</td>
             <td>
-                <Link to={`view/${id}`}><button>Ver</button></Link>
-                <Link to={`update/${id}`}><button>Atualizar</button></Link>
+                <Link to={`/StockItems/view/${id}`}><button>Ver</button></Link>
+                <Link to={`/StockItems/update/${id}`}><button>Atualizar</button></Link>
                 <button onClick={() => removeItem(id)}>Excluir</button>
             </td>
         </tr>

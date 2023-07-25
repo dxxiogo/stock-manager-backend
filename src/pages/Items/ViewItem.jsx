@@ -1,25 +1,29 @@
 import { useContext } from "react"
 import { ItemsContext } from "../../contexts/ItemsContext"
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function ViewItem () {
     const {items} = useContext(ItemsContext);
-    const itemId = useParams();
-    const {name, description, price, amount, category } = items.find(({id}) => id === +itemId );
+    const {itemId} = useParams();
+    const item  = items.find(({id}) => id === +itemId )
+
+    if(!item) {
+        return <h2>Ops! Item não encontrado</h2>
+    }
 
     return (
         <div>
             <div>
                 <span>
-                    {name}
+                    {item.name}
                 </span>
                 <span>
-                    <button>Atualizar</button>
-                    <button>Excluir</button>
+                    <Link to={`/StockItems/view/${item.id}`}><button>Ver</button></Link>
+                    <Link to={`/StockItems/update/${item.id}`}><button>Atualizar</button></Link>
                 </span>
             </div>
             <div>
-                <p>{description}</p>
+                <p>{item.description}</p>
             </div>
         </div>
     )
