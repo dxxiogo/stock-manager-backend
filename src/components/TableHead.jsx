@@ -1,4 +1,4 @@
-export function TableHead ({children}) {
+export default function TableHead ({children}) {
     return (
         <thead>
             <tr>

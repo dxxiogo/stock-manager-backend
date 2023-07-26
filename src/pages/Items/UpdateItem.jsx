@@ -5,8 +5,8 @@ import Form from "../../components/Form";
 
 
 export default function UpdateItem () {
-    const {updateItem} = useContext(ItemsContext);
     const item = useLoaderData();
+    const {updateItem} = useContext(ItemsContext);
 
     
     function submitForm ({name, amount, price, category, description}) {
