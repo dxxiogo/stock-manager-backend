@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Input from "../components/Input";
-import Select from "../components/Select"
-import Textarea from "../components/Textarea"
+import Select from "../components/Select";
+import Textarea from "../components/Textarea";
+import Button from "./Button";
 
 export default function Form ({handleSubmit, inicialValues}) {
     
@@ -26,7 +27,7 @@ export default function Form ({handleSubmit, inicialValues}) {
                 <option value="Jogos">Jogos</option>    
             </Select>
             <Textarea id="description" labelContent="Descrição" value={description} handleChange={(eve) => setDescription(eve.target.value)}/>
-            <button>Salvar</button>
+            <Button content="Salvar"/>
           </form>
         </>
     )

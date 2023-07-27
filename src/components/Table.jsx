@@ -3,7 +3,7 @@ import  TableHead from "./TableHead"
 export default function Table ({headers, children}) {
     return (
         <>
-          <table>
+          <table className="bg-black w-3/5">
             <TableHead>
                 {
                   headers.map(header => (

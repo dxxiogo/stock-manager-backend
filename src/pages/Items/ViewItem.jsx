@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ItemsContext } from "../../contexts/ItemsContext"
 import { useParams, Link } from "react-router-dom";
+import Button from "../../components/Button";
 
 export default function ViewItem () {
     const {items} = useContext(ItemsContext);
@@ -18,8 +19,8 @@ export default function ViewItem () {
                     {item.name}
                 </span>
                 <span>
-                    <Link to={`/StockItems/view/${item.id}`}><button>Ver</button></Link>
-                    <Link to={`/StockItems/update/${item.id}`}><button>Atualizar</button></Link>
+                    <Link to={`/StockItems/update/${item.id}`}><Button content="Atualizar"/></Link>
+                    <Button content="Excluir" onClick={() => removeItem(item.id)}/>
                 </span>
             </div>
             <div>
