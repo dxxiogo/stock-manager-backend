@@ -13,7 +13,7 @@ export default function AddNewItem () {
     }
 
     return (
-        <div>
+        <div className="p-12">
             <Form handleSubmit={submitForm}/>
         </div>
     )

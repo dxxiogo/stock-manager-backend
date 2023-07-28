@@ -6,9 +6,8 @@ export default function RootLayout () {
         <div className="bg-gray-900 min-h-screen text-zinc-50">
           <NavBar/>
           <Outlet/>  
-          <hr />
-          <footer>
-            Feito com React e React Router
+          <footer className="p-3">
+            Feito com React, React Router e Tailwind
           </footer>
         </div>
     )

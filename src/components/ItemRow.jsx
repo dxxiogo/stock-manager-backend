@@ -7,7 +7,7 @@ export default function ItemRow ({id, name, amount, category, price, description
     const {removeItem} = useContext(ItemsContext);
     
     return (
-        <tr>
+        <tr className="w-full h-10 p-2">
             <td>{id}</td>
             <td>{name}</td>
             <td>{amount}</td>

@@ -18,7 +18,7 @@ export default function Dashboard () {
         <div className="dashboard p-5">
             <h1 className="font-light text-[2.5rem] text-zinc-50">Dashboard</h1>
             <InventoryOverview/>
-            <div className="flex gap-20 px-5 mt-3 ">
+            <div className="flex w-full justify-between px-5">
                 <Table headers={["Itens Recentes", "Ações"]}>
                    {
                     recentsItems.map(({id, name}) => (

@@ -7,7 +7,7 @@ export default function NavBar () {
             <nav>
                 <ul className="flex items-center gap-10">
                     <li><Link to="/">Inicio</Link></li>
-                    <li><Link to="/StockItems">Itens</Link></li>
+                    <li><Link to="/StockItems/Items">Itens</Link></li>
                 </ul>
             </nav>
         </header>
