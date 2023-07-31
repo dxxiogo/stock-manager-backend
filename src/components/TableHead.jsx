@@ -1,7 +1,7 @@
 export default function TableHead ({children}) {
     return (
-        <thead className="bg-gray-800 h-10  w-full">
-            <tr className="flex align-center gap-10 p-3 max-w-4xl">
+        <thead className="bg-gray-800 h-14 shadow-2xl p-2">
+            <tr className="">
                {children}
             </tr>
         </thead>

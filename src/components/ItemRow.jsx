@@ -7,16 +7,15 @@ export default function ItemRow ({id, name, amount, category, price, description
     const {removeItem} = useContext(ItemsContext);
     
     return (
-        <tr className="w-full h-10 p-2">
-            <td>{id}</td>
-            <td>{name}</td>
+        <tr className=" h-10 px-10 text-center">
+            <td className="px-4" >{id}</td>
+            <td className="px-4">{name}</td>
             <td>{amount}</td>
             <td>{category}</td>
-            <td>{price}</td>
-            <td>{description}</td>
-            <td>
-                <Link to={`/StockItems/view/${id}`}><Button content="Ver"/></Link>
-                <Link to={`/StockItems/update/${id}`}><Button content="Atualizar"/></Link>
+            <td>R${price}</td>
+            <td className="flex align-center gap-10  justify-center p-2">
+                <Link to={`/StockItems/view/${id}`}><Button content="Ver" className="bg-sky-400"/></Link>
+                <Link to={`/StockItems/update/${id}`}><Button content="Atualizar" className="bg-slate-50 text-black"/></Link>
                 <Button content="Excluir" onClick={() => removeItem(id)} className= "bg-red-600"/>
             </td>
         </tr>

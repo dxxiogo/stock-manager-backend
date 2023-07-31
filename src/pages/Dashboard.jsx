@@ -22,9 +22,9 @@ export default function Dashboard () {
                 <Table headers={["Itens Recentes", "Ações"]}>
                    {
                     recentsItems.map(({id, name}) => (
-                        <tr key={id}>
-                            <td>{name}</td>
-                            <td><Link to={`/StockItems/view/${id}`}><Button content="Ver"/></Link></td>
+                        <tr key={id} className="text-center">
+                            <td className="p-3">{name}</td>
+                            <td><Link to={`/StockItems/view/${id}`}><Button content="Ver" className="bg-sky-400"/></Link></td>
                         </tr>
                      ))
                    }     
@@ -32,10 +32,10 @@ export default function Dashboard () {
                 <Table headers={["Itens Acabando", "Qtd.", "Ações"]}>
                     {
                       itemsRunningOut.map(({id, name, amount}) => (
-                        <tr key={id}>
+                        <tr key={id} className="text-center">
                             <td>{name}</td>
                             <td>{amount}</td>
-                            <td><Link to={`/StockItems/view/${id}`}><Button content="Ver"/></Link></td>
+                            <td><Link to={`/StockItems/view/${id}`}><Button content="Ver" className="bg-sky-400"/></Link></td>
                         </tr>
                      ))   
                     }

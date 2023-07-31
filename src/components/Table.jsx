@@ -3,7 +3,7 @@ import  TableHead from "./TableHead"
 export default function Table ({headers, children}) {
     return (
         <>
-          <table className="bg-black my-10 max-w-6xl min-h-min">
+          <table className="m-10 h-30 w-11/12">
             <TableHead>
                 {
                   headers.map(header => (
@@ -11,7 +11,7 @@ export default function Table ({headers, children}) {
                  ))
                 }
             </TableHead>
-            <tbody>
+            <tbody className="p-2">
                 {children}
             </tbody>
           </table>  

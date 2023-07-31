@@ -6,11 +6,12 @@ import Button from "./Button";
 
 export default function Form ({handleSubmit, inicialValues}) {
     
-    const [name, setName] = useState( ""??inicialValues.name);
-    const [amount, setAmount] = useState( 0 ??inicialValues.amount);
-    const [price, setPrice] = useState(0 ?? inicialValues.price);
-    const [category, setCategory] = useState("" ?? inicialValues.category);
-    const [description, setDescription] = useState("" ?? inicialValues.description);
+    const [name, setName] = useState(inicialValues?.name ?? "");
+    const [amount, setAmount] = useState( inicialValues?.amount ?? 0);
+    const [price, setPrice] = useState(inicialValues?.price ?? 0);
+    const [category, setCategory] = useState(inicialValues?.category ?? "");
+    const [description, setDescription] = useState(inicialValues?.description ?? "");
+
 
     function submitForm (eve) {
         eve.preventDefault();
@@ -29,7 +30,7 @@ export default function Form ({handleSubmit, inicialValues}) {
                 </Select>
             </div>
             <Textarea id="description" labelContent="Descrição" value={description} handleChange={(eve) => setDescription(eve.target.value)}/>
-            <Button content="Salvar" className="bg-sky-400"/>
+            <Button content="Salvar" className="bg-sky-400 mt-4"/>
           </form>
         </>
     )
