@@ -1,10 +1,10 @@
-import { useContext } from "react"
-import { ItemsContext } from "../contexts/ItemsContext"
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import useStock from "../hooks/useStock";
 
-export default function ItemRow ({id, name, amount, category, price, description}) {
-    const {removeItem} = useContext(ItemsContext);
+// eslint-disable-next-line react/prop-types
+export default function ItemRow ({id, name, amount, category, price}) {
+    const {removeItem} = useStock();
     
     return (
         <tr className=" h-10 px-10 text-center">

@@ -6,6 +6,7 @@ import Items from "./pages/Items/Items";
 import AddNewItem from "./pages/Items/AddNewItem";
 import UpdateItem from "./pages/Items/UpdateItem";
 import ViewItem from "./pages/Items/ViewItem";
+import itemLoader from "./loaders/items";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "view/:itemId",
-                        element: <ViewItem/>
+                        element: <ViewItem/>,
+                        loader: itemLoader
                     },
                     {
                         path: "addNewItem",
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
                     {
                         path: "update/:itemId",
                         element: <UpdateItem/>,
+                        loader: itemLoader
                     }
                 ]
             }

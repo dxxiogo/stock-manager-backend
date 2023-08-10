@@ -2,20 +2,14 @@ import InventoryOverview from "../components/InventoryOverview";
 import { Link } from "react-router-dom";
 import Table from "../components/Table";
 import useInvetory from "../hooks/useInvetory";
-import { useEffect } from "react";
 import Button from "../components/Button";
 
 export default function Dashboard () {
-    const {itemsRunningOut, recentsItems, updateData} = useInvetory();
-
-    useEffect(() => {
-        updateData();
-    }, [])
-
-
+    const {itemsRunningOut, recentsItems} = useInvetory();
+    console.log(recentsItems);
 
     return (
-        <div className="dashboard p-5">
+        <div className="dashboard p-5 grow">
             <h1 className="font-light text-[2.5rem] text-zinc-50">Dashboard</h1>
             <InventoryOverview/>
             <div className="flex w-full justify-between px-5">

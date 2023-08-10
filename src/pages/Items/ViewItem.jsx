@@ -1,14 +1,12 @@
-import { useContext } from "react"
-import { ItemsContext } from "../../contexts/ItemsContext"
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLoaderData } from "react-router-dom";
 import ItemInfo from "../../components/ItemInfo";
 import Button from "../../components/Button";
+import useStock from "../../hooks/useStock";
 
 export default function ViewItem () {
+    const {removeItem} = useStock();
     const navigate = useNavigate();
-    const {items, removeItem} = useContext(ItemsContext);
-    const {itemId} = useParams();
-    const item  = items.find(({id}) => id === +itemId )
+    const item = useLoaderData();
 
     function handleButtonRemove () {
         removeItem(item.id);

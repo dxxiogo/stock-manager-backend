@@ -1,15 +1,17 @@
 import moment from "moment";
-import { useContext} from "react"
-import { ItemsContext } from "../../contexts/ItemsContext";
+import { useNavigate } from "react-router-dom";
 import Form from "../../components/Form";
+import useStock from "../../hooks/useStock";
 
 export default function AddNewItem () {
-    const {addItem} = useContext(ItemsContext);
+    const navigate = useNavigate();
+    const {addItem} = useStock();
 
     function submitForm ({name, amount, price, category, description}) {
         const id = Math.floor(Math.random() * 5000);
         const date = moment().format("YYYY-MM-DD");
         addItem({id, name, amount, price, category, description, date});
+        return navigate("/StockItems/Items");
     }
 
     return (

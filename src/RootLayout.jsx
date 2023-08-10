@@ -3,7 +3,7 @@ import NavBar from "./components/Navbar"
 
 export default function RootLayout () {
     return (
-        <div className="bg-gray-900 min-h-screen text-zinc-50">
+        <div className="bg-gray-900 min-h-screen text-zinc-50 flex flex-col justify-between">
           <NavBar/>
           <Outlet/>  
           <footer className="p-3">

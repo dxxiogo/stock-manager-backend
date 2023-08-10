@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Input from "../components/Input";
 import Select from "../components/Select";

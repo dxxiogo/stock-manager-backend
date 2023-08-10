@@ -1,25 +1,23 @@
-import { useContext} from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { ItemsContext } from "../../contexts/ItemsContext";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Form from "../../components/Form";
+import useStock from "../../hooks/useStock";
 
 
 export default function UpdateItem () {
-    const navigate = useNavigate();
-    const {itemId} = useParams();
-    const {items, updateItem} = useContext(ItemsContext);
-    const item  = items.find(({id}) => id === +itemId );
-
-    console.log(item)
+    
+    const navigate = useNavigate();    
+    const {updateItem} = useStock();
+    const item = useLoaderData();
 
     function submitForm ({name, amount, price, category, description}) {
         const id = +item.id;
         updateItem({id, name, amount, price, category, description});
-        return navigate("/StockItems/Items");
+        return navigate('/StockItems/Items');
+        
     }
-
+    
     if(!item) {
-        return <h2>Ops! Item não encontrado</h2>
+        return <h2 className="mt-4">Ops! Item não encontrado</h2>
     }
 
     return (

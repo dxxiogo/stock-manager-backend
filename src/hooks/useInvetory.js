@@ -1,6 +1,5 @@
-import { useContext, useState } from "react"
-import { ItemsContext } from "../contexts/ItemsContext";
 import moment from "moment/moment";
+import useStock from "./useStock";
 
 function calculateRecentsItems (date) {
     const currentDate = moment(moment().format("YYYY-MM-DD"));
@@ -8,25 +7,21 @@ function calculateRecentsItems (date) {
 }
 
 export default function useInvetory () {
-    const [itemsRunningOut, setItemsRunningOut] = useState([]);
-    const [recentsItems, setRecentsItems] = useState([]);
-    const [totalInvetory, setTotalInvetory] = useState(0);
-    const [diversityOfItems, setDiversityOfItems] = useState(0);
+    const {items} = useStock();
+    console.log(items);    
 
-    const {items} = useContext(ItemsContext);
+    const itemsRunningOut = items.filter(item => item.amount <= 10);
+    const recentsItems =  items.filter(item => {
+             if(calculateRecentsItems(item.date) <= 15) {
+                 return item;
+             }
+         });
+     const totalInvetory = items.reduce((acc, item) => acc + +item.amount, 0);
 
-    function updateData () {
-        setItemsRunningOut(state => items.filter(item => item.amount <= 10));
-        setRecentsItems(state => {
-           return items.filter(item => {
-                if(calculateRecentsItems(item.date) <= 15) {
-                    return item;
-                }
-            } )
-        });
-        setTotalInvetory(items.reduce((acc, item) => acc + +item.amount, 0));
-        setDiversityOfItems(items.length);
-    }
+    
        
-    return {itemsRunningOut, recentsItems, totalInvetory, diversityOfItems, updateData};
+    return {itemsRunningOut, recentsItems, totalInvetory};
 }
+
+
+// Para facilitar no uso do useContext, para que não precise sempre usar useConetext e passar um parâmetro, criar um hook facilitará
