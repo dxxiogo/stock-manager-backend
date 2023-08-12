@@ -23,7 +23,7 @@ export default function UpdateItem () {
     return (
         <>
             <h3 className="mt-8 text-2xl font-light">Atualizar - {item.name}</h3>
-            <div className="p-12">
+            <div className="p-12 max-sm:p-6 max-[410px]:px-2">
             <Form handleSubmit={submitForm} inicialValues={item}/> 
             </div>
         </>

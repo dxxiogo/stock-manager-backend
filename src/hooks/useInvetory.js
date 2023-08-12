@@ -8,7 +8,6 @@ function calculateRecentsItems (date) {
 
 export default function useInvetory () {
     const {items} = useStock();
-    console.log(items);    
 
     const itemsRunningOut = items.filter(item => item.amount <= 10);
     const recentsItems =  items.filter(item => {

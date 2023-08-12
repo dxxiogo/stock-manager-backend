@@ -15,7 +15,7 @@ export default function AddNewItem () {
     }
 
     return (
-        <div className="p-12">
+        <div className="p-12 max-sm:p-6 max-[410px]:px-2">
             <Form handleSubmit={submitForm}/>
         </div>
     )

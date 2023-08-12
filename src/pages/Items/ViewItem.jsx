@@ -19,19 +19,19 @@ export default function ViewItem () {
 
     return (
         <div>
-            <div className="flex align-center  gap-10 mt-3">
-                <h2 className="font-light text-2xl">
+            <div className="flex align-center gap-8 mt-3 max-[418px]:flex-wrap max-[418px]:space-around" >
+                <h2 className="font-light text-2xl whitespace-normal ">
                     {item.name}
                 </h2>
-                <div className="flex align-center gap-3">
-                    <Link to={`/StockItems/update/${item.id}`}><Button content="Atualizar" className="bg-slate-50 text-black"/></Link>
-                    <Button content="Excluir" onClick={handleButtonRemove} className="bg-red-600"/>
+                <div className="flex align-center gap-3 flex-wrap">
+                    <Link to={`/StockItems/update/${item.id}`}><Button content="Atualizar" className="bg-slate-50 text-black max-md:text-sm"/></Link>
+                    <Button content="Excluir" onClick={handleButtonRemove} className="bg-red-600 max-md:text-sm"/>
                 </div>
             </div>
             <div>
-                <div className="mx-4 my-10 flex align-center gap-12">
+                <div className="mx-4 my-10 flex align-center gap-12 max-sm:flex-col">
                     <ItemInfo content={`Categoria: ${item.category}`}/>
-                    <ItemInfo content={`Quantidade em estoque: ${item.amount}`}/>
+                    <ItemInfo content={`Quantidade em estoque: ${item.amount} unid.`}/>
                     <ItemInfo content={`Preço: R$${item.price}`}/>
                 </div>
             </div>

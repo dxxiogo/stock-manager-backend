@@ -9,7 +9,7 @@ export default function InventoryOverview () {
 
 
     return (
-        <div className="flex align-center gap-10 justify-between p-5">
+        <div className="flex align-center gap-10 justify-between p-5 flex-wrap">
            <InventoryInsight title="Diversidade de Itens" amount={items.length}/>
            <InventoryInsight title="Inventário Total" amount={totalInvetory}/>
            <InventoryInsight title="Itens Recentes" amount={recentsItems.length}/>

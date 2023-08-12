@@ -1,20 +1,33 @@
-import  TableHead from "./TableHead"
+import ItemRow from "./ItemRow";
 
-export default function Table ({headers, children}) {
+export default function Table ({items}) {
     return (
-        <>
-          <table className="m-10 h-30 w-11/12">
-            <TableHead>
-                {
-                  headers.map(header => (
-                    <th key={header} className="">{header}</th>
-                 ))
-                }
-            </TableHead>
+        <div className="overflow-x-auto m-5 max-md:mx-1">
+          <table className="min-w-full">
+            <thead className="bg-gray-800 h-14 shadow-2xl p-2 w-max max-sm:text-sm">
+              <tr className="">
+                <th className="px-4">ID</th>
+                <th className="max-md:px-18">Nome</th>
+                <th className="max-md:hidden">Em estoque</th>
+                <th className="max-md:hidden">Categoria</th>
+                <th  className="max-md:hidden">Preço</th>
+                <th>Ações</th>
+              </tr>
+          </thead>
             <tbody className="p-2">
-                {children}
+              {
+                items.map(({id, name, amount, category, price}) => (
+                <ItemRow 
+                  id={id} 
+                  name={name} 
+                  category={category} 
+                  amount={amount} 
+                  price={price} 
+                  key={id}/>
+              ))
+            } 
             </tbody>
           </table>  
-        </>
+        </div>
     )
 }

@@ -13,6 +13,19 @@ export default function Form ({handleSubmit, inicialValues}) {
     const [category, setCategory] = useState(inicialValues?.category ?? "");
     const [description, setDescription] = useState(inicialValues?.description ?? "");
 
+    const categories = [
+        'Eletrônicos',
+        'Roupas',
+        'Calçados',
+        'Alimentos',
+        'Bebidas',
+        'Acessórios',
+        'Limpeza',
+        'Ferramentas',
+        'Brinquedos',
+        'Móveis',
+        'Livros'
+    ];
 
     function submitForm (eve) {
         eve.preventDefault();
@@ -22,12 +35,16 @@ export default function Form ({handleSubmit, inicialValues}) {
     return (
         <>
            <form onSubmit={submitForm}>
-            <div className="flex gap-10">
+            <div className="flex gap-10 flex-wrap lg:gap-6 max-md:gap-6 " >
                 <Input id="name" type="text" labelContent="Nome:" value={name} handleChange={(eve) => setName(eve.target.value)}/>
                 <Input id="amount" type="number" labelContent="Quantidade:" value={amount} handleChange={(eve) => setAmount(eve.target.value)}/>
                 <Input id="price" type="number" labelContent="Preço:" value={price} handleChange={(eve) => setPrice(eve.target.value)}/>
                 <Select id="category" labelContent="Categoria:" value={category} handleChange={(eve) => setCategory(eve.target.value)}>
-                    <option value="Jogos">Jogos</option>
+                    {
+                        categories.map(category => (
+                            <option value={category} key={category}>{category}</option>
+                        ))
+                    }
                 </Select>
             </div>
             <Textarea id="description" labelContent="Descrição" value={description} handleChange={(eve) => setDescription(eve.target.value)}/>
