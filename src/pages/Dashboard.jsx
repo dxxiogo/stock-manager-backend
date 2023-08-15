@@ -10,7 +10,7 @@ export default function Dashboard () {
         <div className="dashboard p-5 grow">
             <h1 className="font-light text-[2.5rem] text-zinc-50">Dashboard</h1>
             <InventoryOverview/>
-            <div className=" p-5">
+            <div className=" p-5 flex justify-around  gap-20 max-md:flex-wrap max-md:justify-between">
                 <RecentsItemsTable recentsItems={recentsItems}/>
                 <ItemsRunningOutTable itemsRunningOut={itemsRunningOut}/>
             </div>
