@@ -9,8 +9,25 @@
 
   [Access the Project](https://your-link-here)
 
-  <img src="images/screenshot.png" alt="Screenshot">
-</div>
+
+## Screenshots
+
+### Dashboard
+![Dashboard](./src/assets/dashboard.png)
+
+### Items
+![Items](./src/assets/items.png)
+
+### Update Item
+![Update Item](./src/assets/update-item.png)
+
+### Create Item
+![Create Item](./src/assets/create-item.png)
+
+### View Item
+![View Item](./src/assets/view-item.png)
+
+
 
 ## Features
 
@@ -35,7 +52,7 @@
 
 ## Deployment
 
-The project can be accessed and utilized at [project-name](https://your-link-here).
+The project can be accessed and utilized at [stock manager](https://your-link-here).
 
 
 
@@ -43,10 +60,6 @@ The project can be accessed and utilized at [project-name](https://your-link-her
 
 Contributions are welcome! Feel free to open issues and send pull requests.
 
-## License
 
-This project is licensed under the XYZ License. See the [LICENSE](/LICENSE) file for more details.
 
----
-
-Developed with passion by Your Name
+Developed with passion by Diogo
