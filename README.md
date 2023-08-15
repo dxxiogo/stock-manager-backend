@@ -7,8 +7,9 @@
 
   Built with React, Vite, and Tailwind, this project provides an intuitive interface for effectively controlling inventory.
 
-  [Access the Project](https://your-link-here)
+  [Access the Project](https://stock-manager-one.vercel.app/)
 
+</div>
 
 ## Screenshots
 
@@ -52,7 +53,7 @@
 
 ## Deployment
 
-The project can be accessed and utilized at [stock manager](https://your-link-here).
+The project can be accessed and utilized at [stock manager](https://stock-manager-one.vercel.app/).
 
 
 
@@ -62,4 +63,4 @@ Contributions are welcome! Feel free to open issues and send pull requests.
 
 
 
-Developed with passion by Diogo
+Developed with ❤️ by Diogo
