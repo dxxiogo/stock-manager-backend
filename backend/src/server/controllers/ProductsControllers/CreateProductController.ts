@@ -1,26 +1,27 @@
 import { Request, Response } from "express";
 import { prismaClient } from "../../database/prismaClient";
 
- export class createProductController {
 
-    async handle (req: Request, res: Response) {
 
-        const {name, inStock, category, price} = req.body
+async function createProductController (req: Request, res: Response) {
 
-        try {
-            const product = await prismaClient.product.create({
-                data: {
-                    name,
-                    category,
-                    price,
-                    inStock
-                }
-            })
-            res.status(201).send(product);
+    const {name, inStock, category, price} = req.body
 
-        } catch (err) {
-            res.send({err})
-        }
+    try {
+        const product = await prismaClient.product.create({
+            data: {
+                name,
+                category,
+                price,
+                inStock
+            }
+        })
+        res.status(201).json(product);
 
+    } catch (err) {
+        res.send({err})
     }
+
 }
+
+export {createProductController};
