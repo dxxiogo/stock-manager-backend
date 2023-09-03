@@ -10,4 +10,5 @@ server.get('/', (req, res) => {
     res.send('<h1>Servidor ativo!</h1>');
 });
 
+
 export {server};
