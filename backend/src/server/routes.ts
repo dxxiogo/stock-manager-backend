@@ -3,6 +3,7 @@ import { createProductController } from './controllers/ProductsControllers/Creat
 import { updateProductController } from "./controllers/ProductsControllers/UpdateProductController";
 import { deleteProductController } from "./controllers/ProductsControllers/DeleteProductController";
 import { viewProductController } from "./controllers/ProductsControllers/ViewProductController";
+import { bodyValidation } from "./shared/middleware/bodyValidation";
 
 const router = Router();
 
@@ -10,7 +11,7 @@ const router = Router();
 
 router.get('/products', );
 
-router.post('/product', createProductController);
+router.post('/product', bodyValidation, createProductController);
 
 router.put('/product/:id', updateProductController);
 
