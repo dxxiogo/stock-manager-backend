@@ -7,6 +7,7 @@ export default function ViewItem () {
     const {removeItem} = useStock();
     const navigate = useNavigate();
     const item = useLoaderData();
+    console.log(item);
 
     function handleButtonRemove () {
         removeItem(item.id);
@@ -31,12 +32,12 @@ export default function ViewItem () {
             <div>
                 <div className="mx-4 my-10 flex align-center gap-12 max-sm:flex-col">
                     <ItemInfo content={`Categoria: ${item.category}`}/>
-                    <ItemInfo content={`Quantidade em estoque: ${item.amount} unid.`}/>
+                    <ItemInfo content={`Quantidade em estoque: ${item.inStock} unid.`}/>
                     <ItemInfo content={`Preço: R$${item.price}`}/>
                 </div>
             </div>
             <div>
-                <p>{item.description}</p>
+                <p>{item.description} oi</p>
             </div>
         </div>
     )

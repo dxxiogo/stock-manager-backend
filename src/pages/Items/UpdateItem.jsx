@@ -9,9 +9,9 @@ export default function UpdateItem () {
     const {updateItem} = useStock();
     const item = useLoaderData();
 
-    function submitForm ({name, amount, price, category, description}) {
-        const id = +item.id;
-        updateItem({id, name, amount, price, category, description});
+    function submitForm ({name, inStock, price, category, description}) {
+        const id = item.id;
+        updateItem({id, name, inStock, price, category, description});
         return navigate('/StockItems/Items');
         
     }

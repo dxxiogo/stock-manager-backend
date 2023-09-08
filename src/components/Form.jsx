@@ -8,7 +8,7 @@ import Button from "./Button";
 export default function Form ({handleSubmit, inicialValues}) {
     
     const [name, setName] = useState(inicialValues?.name ?? "");
-    const [amount, setAmount] = useState( inicialValues?.amount ?? 0);
+    const [inStock, setinStock] = useState( inicialValues?.inStock ?? 0);
     const [price, setPrice] = useState(inicialValues?.price ?? 0);
     const [category, setCategory] = useState(inicialValues?.category ?? "");
     const [description, setDescription] = useState(inicialValues?.description ?? "");
@@ -29,7 +29,7 @@ export default function Form ({handleSubmit, inicialValues}) {
 
     function submitForm (eve) {
         eve.preventDefault();
-        handleSubmit({name, amount, price, category, description});
+        handleSubmit({name, inStock: +inStock, price, category, description});
     }
    
     return (
@@ -37,7 +37,7 @@ export default function Form ({handleSubmit, inicialValues}) {
            <form onSubmit={submitForm}>
             <div className="flex gap-10 flex-wrap lg:gap-6 max-md:gap-6 " >
                 <Input id="name" type="text" labelContent="Nome:" value={name} handleChange={(eve) => setName(eve.target.value)} />
-                <Input id="amount" type="number" labelContent="Quantidade:" value={amount} handleChange={(eve) => setAmount(eve.target.value)}/>
+                <Input id="inStock" type="number" labelContent="Quantidade:" value={inStock} handleChange={(eve) => setinStock(eve.target.value)}/>
                 <Input id="price" type="number" labelContent="Preço:" value={price} handleChange={(eve) => setPrice(eve.target.value)}/>
                 <Select id="category" labelContent="Categoria:" value={category} handleChange={(eve) => setCategory(eve.target.value)}>
                     {
