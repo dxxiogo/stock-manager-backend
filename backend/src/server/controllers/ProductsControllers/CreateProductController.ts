@@ -17,7 +17,6 @@ async function createProductController (req: Request, res: Response) {
             }
         })
         res.status(201).json(product);
-
     } catch (err) {
         res.send({err})
     }

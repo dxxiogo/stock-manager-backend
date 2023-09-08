@@ -7,28 +7,59 @@ export const ItemsContext = createContext();
 export function ItemsProvider ({children}) {
     const [items, setItems] = useState([]);
 
-    function addItem (item) {
+    async function addItem (item) {
+      try {
+        const response = await fetch(`http://localhost:3333/product`, {
+          method: 'POST',
+          headers: {
+              'Content-type': 'application/json'
+          },
+          body: JSON.stringify(item)
+      });
+      const addedItem = await response.json();
+      console.log(addedItem)
         setItems((state) => { 
-           const newState = [item, ...state]
-           localStorage.setItem("items", JSON.stringify(newState));
+           const newState = [addedItem, ...state]
            return newState;
         });
+      } catch (err) {
+        console.log(err);
+      }
     }
 
-    function removeItem (id) {
+    async function removeItem (id) {
+      try {
+        await fetch(`http://localhost:3333/product/${id}`, {
+          method: 'DELETE'
+        })
         setItems(state => {
           state = state.filter(item => item.id != id);
-          localStorage.setItem("items", JSON.stringify(state));
           return state;
         }) 
+      } catch(err) {
+        console.log(err);
+      }
     }
 
-    function updateItem(value) {
-      setItems(state => {
-        const newState = state.map(item => (item.id === value.id ? { ...item, ...value } : item));
-        localStorage.setItem("items", JSON.stringify(newState));
-        return newState;
-      });    
+    async function updateItem(value) {
+      try {
+        console.log(value);
+        const response = await fetch(`http://localhost:3333/product/${value.id}`,  {
+          method: 'PUT',
+          headers : {
+              'Content-Type' : 'application/json'
+          },
+          body: JSON.stringify(value)
+        });
+        setItems(state => {
+          const newState = state.map(item => (item.id === value.id ? { ...item, ...value } : item));
+          return newState;
+        });    
+
+
+      } catch(err) {
+        console.log(err);
+      }
     }
 
     return <ItemsContext.Provider value={{items, addItem, removeItem, updateItem, setItems}}>{children}</ItemsContext.Provider>

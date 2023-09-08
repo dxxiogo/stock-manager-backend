@@ -7,10 +7,8 @@ export default function AddNewItem () {
     const navigate = useNavigate();
     const {addItem} = useStock();
 
-    function submitForm ({name, amount, price, category, description}) {
-        const id = Math.floor(Math.random() * 5000);
-        const date = moment().format("YYYY-MM-DD");
-        addItem({id, name, amount, price, category, description, date});
+    function submitForm ({name, inStock, price, category, description}) {
+        addItem({name, inStock, price, category, description});
         return navigate("/StockItems/Items");
     }
 
