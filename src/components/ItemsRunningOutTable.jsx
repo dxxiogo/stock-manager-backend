@@ -13,10 +13,10 @@ export default function itemsRunningOutTable ({itemsRunningOut}) {
             </thead>
             <tbody>
                 {
-                    itemsRunningOut.map(({id, name, amount}) => (
+                    itemsRunningOut.map(({id, name, inStock}) => (
                         <tr key={id} className="text-center">
                             <td>{name}</td>
-                            <td>{amount}</td>
+                            <td>{inStock}</td>
                             <td><Link to={`/StockItems/view/${id}`}><Button content="Ver" className="bg-sky-400 max-[420px]:w-12"/></Link></td>
                         </tr>
                     ))   

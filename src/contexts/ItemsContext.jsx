@@ -1,17 +1,11 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 
 
 export const ItemsContext = createContext();
 
 export function ItemsProvider ({children}) {
-    const [items, setItems] = useState( () => {
-      const itemsStored = JSON.parse(localStorage.getItem('items'));
-      if(itemsStored) {
-        return itemsStored;
-      } 
-      return [];
-    });
+    const [items, setItems] = useState([]);
 
     function addItem (item) {
         setItems((state) => { 
@@ -34,8 +28,8 @@ export function ItemsProvider ({children}) {
         const newState = state.map(item => (item.id === value.id ? { ...item, ...value } : item));
         localStorage.setItem("items", JSON.stringify(newState));
         return newState;
-      });
-      }
+      });    
+    }
 
-    return <ItemsContext.Provider value={{items, addItem, removeItem, updateItem}}>{children}</ItemsContext.Provider>
+    return <ItemsContext.Provider value={{items, addItem, removeItem, updateItem, setItems}}>{children}</ItemsContext.Provider>
 }

@@ -16,12 +16,12 @@ export default function Table ({items}) {
           </thead>
             <tbody className="p-2">
               {
-                items.map(({id, name, amount, category, price}) => (
+                items.map(({id, name, inStock, category, price}) => (
                 <ItemRow 
                   id={id} 
                   name={name} 
                   category={category} 
-                  amount={amount} 
+                  amount={inStock} 
                   price={price} 
                   key={id}/>
               ))

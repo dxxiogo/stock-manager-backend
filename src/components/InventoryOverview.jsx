@@ -6,8 +6,6 @@ export default function InventoryOverview () {
     const {items} = useStock();
     const {itemsRunningOut, recentsItems, totalInvetory} = useInvetory();
          
-
-
     return (
         <div className="flex align-center gap-10 justify-between p-5 flex-wrap max-[630px]:justify-center ">
            <InventoryInsight title="Diversidade de Itens" amount={items.length}/>

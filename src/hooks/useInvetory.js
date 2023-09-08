@@ -9,17 +9,23 @@ function calculateRecentsItems (date) {
 export default function useInvetory () {
     const {items} = useStock();
 
-    const itemsRunningOut = items.filter(item => item.amount <= 10);
-    const recentsItems =  items.filter(item => {
-             if(calculateRecentsItems(item.date) <= 15) {
-                 return item;
-             }
-         });
-     const totalInvetory = items.reduce((acc, item) => acc + +item.amount, 0);
+    let itemsRunningOut = [];
+    let recentsItems = [];
+    let totalInvetory = 0;
+
+    if(items.length > 0) {
+        itemsRunningOut = items.filter(item => item.inStock <= 10);
+        recentsItems =  items.filter(item => {
+                 if(calculateRecentsItems(item?.date) <= 15) {
+                     return item;
+                 }
+             });
+        totalInvetory = items.reduce((acc, item) => acc + +item.inStock, 0);
+    }
 
     
        
-    return {itemsRunningOut, recentsItems, totalInvetory};
+    return {itemsRunningOut, totalInvetory, recentsItems};
 }
 
 

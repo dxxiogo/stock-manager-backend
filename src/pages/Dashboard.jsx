@@ -2,9 +2,28 @@ import InventoryOverview from "../components/InventoryOverview";
 import useInvetory from "../hooks/useInvetory";
 import RecentsItemsTable from "../components/RecentsItemsTable";
 import ItemsRunningOutTable from "../components/ItemsRunningOutTable";
+import useStock from "../hooks/useStock";
+import { useEffect } from "react";
+
 
 export default function Dashboard () {
+    const {items, setItems} = useStock();
     const {itemsRunningOut, recentsItems} = useInvetory();
+
+    console.log(itemsRunningOut)
+
+    useEffect (() => {
+        async function fetchData () {
+          try {
+            const response =  await fetch('http://localhost:3333/products');
+            const products = await response.json();
+            setItems(products);
+          } catch(err) {
+            console.log(err)
+          }
+        }
+        fetchData();
+      }, []);
 
     return (
         <div className="dashboard p-5 grow">
