@@ -4,12 +4,13 @@ import { updateProductController } from "./controllers/ProductsControllers/Updat
 import { deleteProductController } from "./controllers/ProductsControllers/DeleteProductController";
 import { viewProductController } from "./controllers/ProductsControllers/ViewProductController";
 import { bodyValidation } from "./shared/middleware/bodyValidation";
+import { getProducts } from "./controllers/ProductsControllers/GetProductsController";
 
 const router = Router();
 
 
 
-router.get('/products', );
+router.get('/products', getProducts);
 
 router.post('/product', bodyValidation, createProductController);
 
