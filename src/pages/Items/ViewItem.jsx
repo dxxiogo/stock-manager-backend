@@ -37,7 +37,7 @@ export default function ViewItem () {
                 </div>
             </div>
             <div>
-                <p>{item.description} oi</p>
+                <p>{item.description}</p>
             </div>
         </div>
     )

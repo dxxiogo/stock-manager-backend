@@ -5,7 +5,7 @@ import { prismaClient } from "../../database/prismaClient";
 
 async function createProductController (req: Request, res: Response) {
 
-    const {name, inStock, category, price} = req.body
+    const {name, inStock, category, price, description} = req.body
 
     try {
         const product = await prismaClient.product.create({
@@ -13,7 +13,8 @@ async function createProductController (req: Request, res: Response) {
                 name,
                 category,
                 price,
-                inStock
+                inStock, 
+                description
             }
         })
         res.status(201).json(product);

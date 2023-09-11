@@ -17,7 +17,7 @@ model Product {
   inStock     Int
   category    String  
   price       Decimal
-  description String    
+  description String    @default("")
   created_at  DateTime  @default(now())
 
 
