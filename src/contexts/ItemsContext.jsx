@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState, useContext } from "react";
 
 
+
 export const ItemsContext = createContext();
 
 export function ItemsProvider ({children}) {
@@ -17,13 +18,14 @@ export function ItemsProvider ({children}) {
           body: JSON.stringify(item)
       });
       const addedItem = await response.json();
-      console.log(addedItem)
         setItems((state) => { 
            const newState = [addedItem, ...state]
            return newState;
         });
+        return addedItem;
       } catch (err) {
-        console.log(err);
+        console.log(typeof err)
+        return err
       }
     }
 
@@ -62,5 +64,15 @@ export function ItemsProvider ({children}) {
       }
     }
 
-    return <ItemsContext.Provider value={{items, addItem, removeItem, updateItem, setItems}}>{children}</ItemsContext.Provider>
+    async function fetchItems () {
+      try {
+        const response =  await fetch('http://localhost:3333/products');
+        const products = await response.json();
+        setItems(products);
+      } catch(err) {
+        console.log(err)
+      }
+    }
+
+    return <ItemsContext.Provider value={{items, addItem, removeItem, updateItem, setItems, fetchItems}}>{children}</ItemsContext.Provider>
 }

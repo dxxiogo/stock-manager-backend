@@ -7,22 +7,13 @@ import { useEffect } from "react";
 
 
 export default function Dashboard () {
-    const {items, setItems} = useStock();
+    const {fetchItems} = useStock();
     const {itemsRunningOut, recentsItems} = useInvetory();
 
     console.log(itemsRunningOut)
 
     useEffect (() => {
-        async function fetchData () {
-          try {
-            const response =  await fetch('http://localhost:3333/products');
-            const products = await response.json();
-            setItems(products);
-          } catch(err) {
-            console.log(err)
-          }
-        }
-        fetchData();
+        fetchItems();
       }, []);
 
     return (
