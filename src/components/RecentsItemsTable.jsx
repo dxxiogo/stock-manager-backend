@@ -14,7 +14,7 @@ export default function RecentsItemsTable ({recentsItems}) {
             <tbody>
                 {
                     recentsItems.map(({id, name}) => (
-                        <tr key={id} className="">
+                        <tr key={id} className="text-center">
                             <td className="p-3">{name}</td>
                             <td><Link to={`/StockItems/view/${id}`}><Button content="Ver" className="bg-sky-400 max-[420px]:w-12"/></Link></td>
                         </tr>

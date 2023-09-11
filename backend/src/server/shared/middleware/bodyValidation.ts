@@ -5,7 +5,7 @@ let productSchema = yup.object().shape({
     name: yup.string().required().min(3),
     inStock: yup.number().required().min(1),
     category: yup.string().required(),
-    price: yup.number().required(),
+    price: yup.number().required().min(0.10),
     description: yup.string()
 })
 

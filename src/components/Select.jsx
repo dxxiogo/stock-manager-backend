@@ -1,4 +1,6 @@
-export default function Select ({id, labelContent, value, handleChange, children}) {
+import ErrorInput from "./ErrorInput"
+
+export default function Select ({id, labelContent, value, handleChange, children, err}) {
     return (
         
           <div className="flex flex-col">
@@ -7,6 +9,7 @@ export default function Select ({id, labelContent, value, handleChange, children
               <option value="">Selecione uma categoria</option>
               {children}
             </select>
+            <ErrorInput message={err}/>
           </div>
         
     )
