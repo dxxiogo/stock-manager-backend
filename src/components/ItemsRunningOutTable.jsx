@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function itemsRunningOutTable ({itemsRunningOut}) {
     return (
-        <table className="text-left w-1/2 max-md:w-full">
+        <table className="text-left w-1/2 max-md:w-full ">
             <thead className="bg-gray-800 h-12 shadow-2xl mb-4 rounded">
                 <tr className="max-md:text-sm text-center">
                     <th className="pl-2">Itens Acabando</th>

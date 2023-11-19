@@ -10,7 +10,6 @@ export default function Dashboard () {
     const {fetchItems} = useStock();
     const {itemsRunningOut, recentsItems} = useInvetory();
 
-    console.log(itemsRunningOut)
 
     useEffect (() => {
         fetchItems();
