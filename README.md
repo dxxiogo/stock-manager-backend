@@ -7,8 +7,6 @@
 
   Built with React for the front-end and TypeScript, Node.js, Express, Prisma, and PostgreSQL for the back-end, this project provides an intuitive interface for effectively controlling inventory.
 
-  [Access the Project](https://stock-manager-one.vercel.app/)
-
 </div>
 
 ## 📷 Screenshots
@@ -54,18 +52,14 @@
 
 1. Clone this repository.
 2. Navigate to the project directory in your terminal.
-3. Run `npm install` in the `frontend` directory to install the front-end dependencies.
+3. Run `npm install` in the `stock-manager` directory to install the front-end dependencies.
 4. Run `npm install` in the `backend` directory to install the back-end dependencies.
 5. Configure the following environment variables in a `.env` file in the `backend` directory:
    - `DATABASE_URL`: PostgreSQL database connection URL.
    - `PORT`: Port where the back-end server will run (by default, use 3333).
 6. Run `npx prisma migrate dev` to apply database migrations.
-7. Run `npm run dev` in the `frontend` directory to start the front-end development server.
+7. Run `npm run dev` in the `stock-manager` directory to start the front-end development server.
 8. The front-end will be available on a port determined by Vite.
-
-## 🌐 Deployment
-
-The project can be accessed and utilized at [stock manager](https://stock-manager-one.vercel.app/).
 
 ## 🤝 Contribution
 
